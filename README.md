@@ -13,10 +13,10 @@
 import "safe-tools/SafeTest.sol";
 import "forge-std/Test.sol";
 
-contract Test is Test, SafeTestTools {
+contract SimpleTest is Test, SafeTestTools {
     using SafeTestLib for SafeInstance;
 
-    setUp() public {
+    function setUp() public {
         SafeInstance memory safeInstance = _setupSafe();
         address alice = address(0xA11c3);
 
