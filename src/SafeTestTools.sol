@@ -3,11 +3,11 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "forge-std/Test.sol";
 import "solady/utils/LibSort.sol";
-import "safe-contracts/GnosisSafe.sol";
-import "safe-contracts/proxies/GnosisSafeProxyFactory.sol";
+import "safe-contracts/Safe.sol";
+import "safe-contracts/proxies/SafeProxyFactory.sol";
+import "../lib/safe-contracts/contracts/examples/libraries/SignMessage.sol";
 import "safe-contracts/examples/libraries/SignMessage.sol";
 import "./CompatibilityFallbackHandler_1_3_0.sol";
-import "safe-contracts/examples/libraries/SignMessage.sol";
 
 address constant VM_ADDR = 0x7109709ECfa91a80626fF3989D68f67F5b1DD12D;
 bytes12 constant ADDR_MASK = 0xffffffffffffffffffffffff;
