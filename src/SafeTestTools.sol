@@ -5,7 +5,7 @@ import "forge-std/Test.sol";
 import "solady/utils/LibSort.sol";
 import "safe-contracts/Safe.sol";
 import "safe-contracts/proxies/SafeProxyFactory.sol";
-import "../lib/safe-contracts/contracts/examples/libraries/SignMessage.sol";
+// import "../lib/safe-contracts/contracts/examples/libraries/SignMessage.sol";
 import "safe-contracts/examples/libraries/SignMessage.sol";
 import "./CompatibilityFallbackHandler_1_3_0.sol";
 
@@ -79,7 +79,7 @@ function sortPKsByComputedAddress(uint256[] memory _pks) pure returns (uint256[]
 }
 
 // collapsed interface that includes comapatibilityfallback handler calls
-abstract contract DeployedSafe is GnosisSafe, CompatibilityFallbackHandler {}
+abstract contract DeployedSafe is Safe, CompatibilityFallbackHandler {}
 
 struct AdvancedSafeInitParams {
     bool includeFallbackHandler;
@@ -290,8 +290,8 @@ library SafeTestLib {
 contract SafeTestTools {
     using SafeTestLib for SafeInstance;
 
-    GnosisSafe internal singleton = new GnosisSafe();
-    GnosisSafeProxyFactory internal proxyFactory = new GnosisSafeProxyFactory();
+    Safe internal singleton = new Safe ();
+    SafeProxyFactory internal proxyFactory = new SafeProxyFactory();
     CompatibilityFallbackHandler internal handler = new CompatibilityFallbackHandler();
 
     SafeInstance[] internal instances;
@@ -320,7 +320,7 @@ contract SafeTestTools {
                     ? proxyFactory.createProxyWithNonce(
                         address(singleton), advancedParams.initData, advancedParams.saltNonce
                     )
-                    : proxyFactory.createProxy(address(singleton), advancedParams.initData)
+                    : proxyFactory.createProxyWithNonce(address(singleton), advancedParams.initData, 0)
             )
         );
 
