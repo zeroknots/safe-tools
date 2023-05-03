@@ -1,4 +1,8 @@
 # Gnosis Safe Tools for Foundry
+
+forked to clean deps mess 
+
+
 `SafeTestTools` is a friendly wrapper for deploying safes, executing transactions, performing EIP1271 signatures, and enabling/disabling modules. It manages `Safe` deployments, private keys, and transaction signing so you can simply call `_setupSafe()` and ensure your code works with Safe's as well as EOAs.
 
 ## Before -> After
