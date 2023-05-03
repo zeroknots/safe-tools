@@ -4,8 +4,7 @@
 	branch = v1.2.0
 [submodule "lib/safe-contracts"]
 	path = lib/safe-contracts
-	url = https://github.com/safe-global/safe-contracts
-	branch = v1.3.0
+	url = https://github.com/zeroknots/safe-contracts
 [submodule "lib/solady"]
 	path = lib/solady
 	url = https://github.com/vectorized/solady
